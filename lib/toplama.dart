@@ -1,43 +1,32 @@
-import 'package:deneme/anaSayfa.dart';
+import 'package:deneme/randomlar.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
 import 'dart:math';
+import 'package:flutter/services.dart';
+
+import 'anaSayfa.dart';
 
 class topsayfa extends StatefulWidget {
   @override
   _topsayfaState createState() => _topsayfaState();
 }
 
-/*int girilenrakam;
-final emailController = TextEditingController();*/
-
-bool kontrol() {
-  int a = randomNumbertop + randomNumbertop2;
-}
-
 Random random = new Random();
-int randomNumbertop = random.nextInt(100);
-
+int randomNumbertop = random.nextInt(100) + 1;
 Random random2 = new Random();
-int randomNumbertop2 = random2.nextInt(100);
-
+int randomNumbertop2 = random2.nextInt(100) + 1;
 
 class _topsayfaState extends State<topsayfa> {
-  List<String> rakamlar = [
-    "$randomNumbertop",
-    "$randomNumbertop2",
-  ];
-
-  Widget randomsayibutton(String rakamlar) {
+  @override
+  Widget randomsayibutton(String rand) {
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: 10.0,
         horizontal: 20.0,
       ),
       child: MaterialButton(
-        onPressed: () => topsayfa,
+        onPressed: () => anaSayfa(),
         child: Text(
-          rakamlar,
+          rand,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16.0,
@@ -61,12 +50,11 @@ class _topsayfaState extends State<topsayfa> {
       builder: (context) => AlertDialog(
         title: Text("Uygulamadan Çıkmak istiyor musunuz?"),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text("Hayır"),
             onPressed: () => Navigator.pop(context, false),
           ),
-          // ignore: deprecated_member_use
-          FlatButton(
+          TextButton(
               child: Text("Evet"),
               onPressed: () {
                 Navigator.pushReplacement(
@@ -113,6 +101,7 @@ class _topsayfaState extends State<topsayfa> {
                     ),
                     Text("Sadece numara girişi yapabilirsin :) "),
                     TextFormField(
+                      controller: degisiklik,
                       autovalidateMode: AutovalidateMode.always,
                       keyboardType: TextInputType.number,
                       inputFormatters: [
@@ -143,23 +132,17 @@ class _topsayfaState extends State<topsayfa> {
     );
   }
 
-/*Widget buildEmail() => TextField(
-        controller: emailController,
-        decoration: InputDecoration(
-          hintText: 'name@example.com',
-          labelText: 'Email',
-          prefixIcon: Icon(Icons.mail),
-          // icon: Icon(Icons.mail),
-          suffixIcon: emailController.text.isEmpty
-              ? Container(width: 0)
-              : IconButton(
-                  icon: Icon(Icons.close),
-                  onPressed: () => emailController.clear(),
-                ),
-          border: OutlineInputBorder(),
-        ),
-        keyboardType: TextInputType.emailAddress,
-        textInputAction: TextInputAction.done,
-        // autofocus: true,
-      );*/
+  TextEditingController degisiklik = new TextEditingController();
+
+  void kontrol() {
+    int a = randomNumbertop + randomNumbertop2;
+    if (a.toString() == degisiklik.text) {
+      print("a");
+      setState(() {});
+    } else {
+      print(a);
+      print(degisiklik);
+      print("b");
+    }
+  }
 }

@@ -14,7 +14,7 @@ class _baslangicEkraniState extends State<baslangicEkrani> {
     super.initState();
     Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-        builder: (context) => anaSayfa(),
+        builder: (context) => LoginPage(),
       ));
     });
   }

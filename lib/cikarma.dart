@@ -1,34 +1,26 @@
+import 'package:deneme/randomlar.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
 import 'package:flutter/services.dart';
+
 import 'anaSayfa.dart';
 
 class cikarmasayfa extends StatefulWidget {
   @override
   _cikarmasayfaState createState() => _cikarmasayfaState();
+
 }
-
-/*int girilenrakam;
-final emailController = TextEditingController();*/
-
-bool kontrol() {
-  int a = randomNumbercik + randomNumbercik2;
-}
-
 Random random = new Random();
-int randomNumbercik = random.nextInt(100);
-
+int randomNumbercik = random.nextInt(10)+1;
 Random random2 = new Random();
-int randomNumbercik2 = random2.nextInt(100);
+int randomNumbercik2 = random2.nextInt(10)+1;
 
 class _cikarmasayfaState extends State<cikarmasayfa> {
-  List<String> rakamlar = [
-    "$randomNumbercik",
-    "$randomNumbercik2",
-  ];
+
+
 
   @override
-  Widget randomsayibutton(String rakamlar) {
+  Widget randomsayibutton(String rand) {
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: 10.0,
@@ -37,7 +29,7 @@ class _cikarmasayfaState extends State<cikarmasayfa> {
       child: MaterialButton(
         onPressed: () => anaSayfa(),
         child: Text(
-          rakamlar,
+          rand,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16.0,
@@ -50,22 +42,23 @@ class _cikarmasayfaState extends State<cikarmasayfa> {
         minWidth: 200.0,
         height: 45.0,
         shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+        RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       ),
     );
   }
 
   Future<bool> _onBackPressed() {
+
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text("Uygulamadan Çıkmak istiyor musunuz?"),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text("Hayır"),
             onPressed: () => Navigator.pop(context, false),
           ),
-          FlatButton(
+          TextButton(
               child: Text("Evet"),
               onPressed: () {
                 Navigator.pushReplacement(
@@ -78,6 +71,7 @@ class _cikarmasayfaState extends State<cikarmasayfa> {
       ),
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -112,6 +106,7 @@ class _cikarmasayfaState extends State<cikarmasayfa> {
                     ),
                     Text("Sadece numara girişi yapabilirsin :) "),
                     TextFormField(
+                      controller: degisiklik,
                       autovalidateMode: AutovalidateMode.always,
                       keyboardType: TextInputType.number,
                       inputFormatters: [
@@ -140,5 +135,30 @@ class _cikarmasayfaState extends State<cikarmasayfa> {
         ),
       ),
     );
+
+  }
+  TextEditingController degisiklik = new TextEditingController();
+
+
+
+  void kontrol()
+  {
+    int a = randomNumbercik-randomNumbercik2;
+    if (a.toString()==degisiklik.text)
+    {
+      print("a");
+      setState(() {});
+
+
+    }
+    else{
+      print(a);
+      print(degisiklik);
+      print("b");
+
+    }
+
   }
 }
+
+
