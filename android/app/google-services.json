@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1065318599629",
+    "project_id": "matreman",
+    "storage_bucket": "matreman.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1065318599629:android:9aadb3d6900cd2bc0c9284",
+        "android_client_info": {
+          "package_name": "com.rodurod.matreman"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1065318599629-itjg1hacot1jng2t6nk63d4haqpnsfc1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyArhGTq-QSfI_Wviw5NNlM74IvUGtJNhQA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1065318599629-itjg1hacot1jng2t6nk63d4haqpnsfc1.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

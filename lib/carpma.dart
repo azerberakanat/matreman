@@ -1,6 +1,6 @@
+import 'package:deneme/randomlar.dart';
 import 'package:flutter/material.dart';
 import 'dart:math';
-
 import 'package:flutter/services.dart';
 
 import 'anaSayfa.dart';
@@ -8,29 +8,19 @@ import 'anaSayfa.dart';
 class carpmasayfa extends StatefulWidget {
   @override
   _carpmasayfaState createState() => _carpmasayfaState();
+
 }
-
-int girilenrakam;
-final emailController = TextEditingController();
-
-bool kontrol() {
-  int a = randomNumber + randomNumber2;
-}
-
 Random random = new Random();
-int randomNumber = random.nextInt(100);
-
+int randomNumbercarp = random.nextInt(10)+1;
 Random random2 = new Random();
-int randomNumber2 = random2.nextInt(100);
+int randomNumbercarp2 = random2.nextInt(10)+1;
 
 class _carpmasayfaState extends State<carpmasayfa> {
-  List<String> rakamlar = [
-    "$randomNumber",
-    "$randomNumber2",
-  ];
+
+
 
   @override
-  Widget randomsayibutton(String rakamlar) {
+  Widget randomsayibutton(String rand) {
     return Padding(
       padding: EdgeInsets.symmetric(
         vertical: 10.0,
@@ -39,7 +29,7 @@ class _carpmasayfaState extends State<carpmasayfa> {
       child: MaterialButton(
         onPressed: () => anaSayfa(),
         child: Text(
-          rakamlar,
+          rand,
           style: TextStyle(
             color: Colors.white,
             fontSize: 16.0,
@@ -58,16 +48,17 @@ class _carpmasayfaState extends State<carpmasayfa> {
   }
 
   Future<bool> _onBackPressed() {
+
     return showDialog(
       context: context,
       builder: (context) => AlertDialog(
         title: Text("Uygulamadan Çıkmak istiyor musunuz?"),
         actions: <Widget>[
-          FlatButton(
+          TextButton(
             child: Text("Hayır"),
             onPressed: () => Navigator.pop(context, false),
           ),
-          FlatButton(
+          TextButton(
               child: Text("Evet"),
               onPressed: () {
                 Navigator.pushReplacement(
@@ -80,6 +71,7 @@ class _carpmasayfaState extends State<carpmasayfa> {
       ),
     );
   }
+
 
   @override
   Widget build(BuildContext context) {
@@ -97,8 +89,8 @@ class _carpmasayfaState extends State<carpmasayfa> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      randomsayibutton("$randomNumber"),
-                      randomsayibutton("$randomNumber2"),
+                      randomsayibutton("$randomNumbercarp"),
+                      randomsayibutton("$randomNumbercarp2"),
                     ],
                   ),
                 ),
@@ -114,6 +106,7 @@ class _carpmasayfaState extends State<carpmasayfa> {
                     ),
                     Text("Sadece numara girişi yapabilirsin :) "),
                     TextFormField(
+                      controller: degisiklik,
                       autovalidateMode: AutovalidateMode.always,
                       keyboardType: TextInputType.number,
                       inputFormatters: [
@@ -142,5 +135,30 @@ class _carpmasayfaState extends State<carpmasayfa> {
         ),
       ),
     );
+
+  }
+  TextEditingController degisiklik = new TextEditingController();
+
+
+
+  void kontrol()
+  {
+    int a = randomNumbercarp*randomNumbercarp2;
+    if (a.toString()==degisiklik.text)
+    {
+      print("a");
+        setState(() {});
+
+
+    }
+    else{
+      print(a);
+      print(degisiklik);
+      print("b");
+
+    }
+
   }
 }
+
+

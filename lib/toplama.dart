@@ -3,29 +3,29 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'dart:math';
 
-
 class topsayfa extends StatefulWidget {
   @override
   _topsayfaState createState() => _topsayfaState();
 }
 
-int girilenrakam;
-final emailController = TextEditingController();
+/*int girilenrakam;
+final emailController = TextEditingController();*/
 
 bool kontrol() {
-  int a = randomNumber + randomNumber2;
+  int a = randomNumbertop + randomNumbertop2;
 }
 
 Random random = new Random();
-int randomNumber = random.nextInt(100);
+int randomNumbertop = random.nextInt(100);
 
 Random random2 = new Random();
-int randomNumber2 = random2.nextInt(100);
+int randomNumbertop2 = random2.nextInt(100);
+
 
 class _topsayfaState extends State<topsayfa> {
   List<String> rakamlar = [
-    "$randomNumber",
-    "$randomNumber2",
+    "$randomNumbertop",
+    "$randomNumbertop2",
   ];
 
   Widget randomsayibutton(String rakamlar) {
@@ -65,6 +65,7 @@ class _topsayfaState extends State<topsayfa> {
             child: Text("Hayır"),
             onPressed: () => Navigator.pop(context, false),
           ),
+          // ignore: deprecated_member_use
           FlatButton(
               child: Text("Evet"),
               onPressed: () {
@@ -95,8 +96,8 @@ class _topsayfaState extends State<topsayfa> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      randomsayibutton("$randomNumber"),
-                      randomsayibutton("$randomNumber2"),
+                      randomsayibutton("$randomNumbertop"),
+                      randomsayibutton("$randomNumbertop2"),
                     ],
                   ),
                 ),
@@ -142,7 +143,7 @@ class _topsayfaState extends State<topsayfa> {
     );
   }
 
-  Widget buildEmail() => TextField(
+/*Widget buildEmail() => TextField(
         controller: emailController,
         decoration: InputDecoration(
           hintText: 'name@example.com',
@@ -160,5 +161,5 @@ class _topsayfaState extends State<topsayfa> {
         keyboardType: TextInputType.emailAddress,
         textInputAction: TextInputAction.done,
         // autofocus: true,
-      );
+      );*/
 }

@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
-
 import 'package:flutter/services.dart';
-
 import 'anaSayfa.dart';
 
 class cikarmasayfa extends StatefulWidget {
@@ -10,25 +8,25 @@ class cikarmasayfa extends StatefulWidget {
   _cikarmasayfaState createState() => _cikarmasayfaState();
 }
 
-int girilenrakam;
-final emailController = TextEditingController();
+/*int girilenrakam;
+final emailController = TextEditingController();*/
 
 bool kontrol() {
-  int a = randomNumber + randomNumber2;
+  int a = randomNumbercik + randomNumbercik2;
 }
 
 Random random = new Random();
-int randomNumber = random.nextInt(100);
+int randomNumbercik = random.nextInt(100);
 
 Random random2 = new Random();
-int randomNumber2 = random2.nextInt(100);
+int randomNumbercik2 = random2.nextInt(100);
 
 class _cikarmasayfaState extends State<cikarmasayfa> {
-
   List<String> rakamlar = [
-    "$randomNumber",
-    "$randomNumber2",
+    "$randomNumbercik",
+    "$randomNumbercik2",
   ];
+
   @override
   Widget randomsayibutton(String rakamlar) {
     return Padding(
@@ -52,10 +50,11 @@ class _cikarmasayfaState extends State<cikarmasayfa> {
         minWidth: 200.0,
         height: 45.0,
         shape:
-        RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
       ),
     );
   }
+
   Future<bool> _onBackPressed() {
     return showDialog(
       context: context,
@@ -79,6 +78,7 @@ class _cikarmasayfaState extends State<cikarmasayfa> {
       ),
     );
   }
+
   @override
   Widget build(BuildContext context) {
     SystemChrome.setPreferredOrientations(
@@ -95,8 +95,8 @@ class _cikarmasayfaState extends State<cikarmasayfa> {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      randomsayibutton("$randomNumber"),
-                      randomsayibutton("$randomNumber2"),
+                      randomsayibutton("$randomNumbercik"),
+                      randomsayibutton("$randomNumbercik2"),
                     ],
                   ),
                 ),
@@ -141,7 +141,4 @@ class _cikarmasayfaState extends State<cikarmasayfa> {
       ),
     );
   }
-
-
-  }
-
+}

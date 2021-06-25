@@ -1,4 +1,5 @@
 import 'package:deneme/anaSayfa.dart';
+import 'package:deneme/screens/giris.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 
@@ -9,15 +10,14 @@ class baslangicEkrani extends StatefulWidget {
 
 class _baslangicEkraniState extends State<baslangicEkrani> {
   @override
-  void initState(){
+  void initState() {
     super.initState();
-    Timer(Duration(seconds: 3),() {
+    Timer(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(MaterialPageRoute(
-          builder: (context) => anaSayfa(),
+        builder: (context) => anaSayfa(),
       ));
-  });
-
-}
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -26,10 +26,10 @@ class _baslangicEkraniState extends State<baslangicEkrani> {
       body: Center(
         child: Text(
           "MATREMAN",
-              style: TextStyle(
+          style: TextStyle(
             fontSize: 50.0,
-                color: Colors.white,
-        ),
+            color: Colors.white,
+          ),
         ),
       ),
     );
