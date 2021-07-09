@@ -1,9 +1,8 @@
-import 'package:deneme/anaSayfa.dart';
+
+import 'package:deneme/profil.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
-
 import 'baslangicEkrani.dart';
 
 void main() async {
@@ -20,7 +19,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: "Mat Problemi",
       theme: ThemeData(primarySwatch: Colors.indigo),
-      home: anaSayfa(),
+      home: baslangicEkrani(),
     );
   }
 }

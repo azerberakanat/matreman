@@ -1,5 +1,10 @@
+import 'package:deneme/dosyaislemi.dart';
+import 'package:deneme/foto%C4%9Fraf.dart';
+import 'package:deneme/grafik.dart';
 import 'package:deneme/hakk%C4%B1nda.dart';
+import 'package:deneme/kayd%C4%B1rma.dart';
 import 'package:deneme/profil.dart';
+import 'package:deneme/radialmen%C3%BC.dart';
 import 'package:deneme/skor.dart';
 import 'package:flutter/services.dart';
 import 'package:deneme/carpma.dart';
@@ -79,22 +84,7 @@ class _anaSayfaState extends State<anaSayfa> {
   }
 
   Future<bool> _onBackPressed() {
-    return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text("Uygulamadan Çıkmak istiyor musunuz?"),
-        actions: <Widget>[
-          TextButton(
-            child: Text("Hayır"),
-            onPressed: () => Navigator.pop(context, false),
-          ),
-          TextButton(
-            child: Text("Evet"),
-            onPressed: () => Navigator.pop(context, true),
-          ),
-        ],
-      ),
-    );
+    return showDialog(context: context, builder: (context) => anaSayfa());
   }
 
   @override
@@ -112,14 +102,14 @@ class _anaSayfaState extends State<anaSayfa> {
                     Navigator.pushReplacement(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => profilsayfa(),
+                          builder: (context) => ProfilSayfa(),
                         ));
                   },
                   title: Padding(
                     padding: const EdgeInsets.all(20.0),
                     child: SizedBox(
                       child: Text(
-                        'Profil',
+                        'Profil Sayfa',
                         style: TextStyle(
                           fontSize: 24.0,
                         ),
@@ -145,6 +135,97 @@ class _anaSayfaState extends State<anaSayfa> {
                     ),
                   ),
                 ),
+
+                NavigatingDrawerListItem(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => DosyaIndirme(),
+                        ));
+                  },
+                  title: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SizedBox(
+                      child: Text('Dosya İşlemleri',
+                          style: TextStyle(
+                            fontSize: 24.0,
+                          )),
+                    ),
+                  ),
+                ),
+                NavigatingDrawerListItem(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => KaydirmaOyunu(),
+                        ));
+                  },
+                  title: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SizedBox(
+                      child: Text('Kaydırma oyunu',
+                          style: TextStyle(
+                            fontSize: 24.0,
+                          )),
+                    ),
+                  ),
+                ),
+                NavigatingDrawerListItem(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => grafikSayfa(),
+                        ));
+                  },
+                  title: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SizedBox(
+                      child: Text('Grafik',
+                          style: TextStyle(
+                            fontSize: 24.0,
+                          )),
+                    ),
+                  ),
+                ),
+                NavigatingDrawerListItem(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => resimYakalama(),
+                        ));
+                  },
+                  title: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SizedBox(
+                      child: Text('Fotoğraf Editor',
+                          style: TextStyle(
+                            fontSize: 24.0,
+                          )),
+                    ),
+                  ),
+                ),
+                NavigatingDrawerListItem(
+                  onTap: () {
+                    Navigator.pushReplacement(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => RadialMenu(),
+                        ));
+                  },
+                  title: Padding(
+                    padding: const EdgeInsets.all(20.0),
+                    child: SizedBox(
+                      child: Text('Dönen menü',
+                          style: TextStyle(
+                            fontSize: 24.0,
+                          )),
+                    ),
+                  ),
+                ),
                 NavigatingDrawerListItem(
                   onTap: () {
                     Navigator.pushReplacement(
@@ -157,11 +238,11 @@ class _anaSayfaState extends State<anaSayfa> {
                     padding: const EdgeInsets.all(20.0),
                     child: SizedBox(
                         child: Text(
-                      'Hakkında',
-                      style: TextStyle(
-                        fontSize: 24.0,
-                      ),
-                    )),
+                          'Hakkında',
+                          style: TextStyle(
+                            fontSize: 24.0,
+                          ),
+                        )),
                   ),
                 ),
               ],
@@ -252,7 +333,7 @@ class _anaSayfaState extends State<anaSayfa> {
       case 3:
         return cikarmasayfa();
       case 4:
-        return profilsayfa();
+        return ProfilSayfa();
       case 0:
       default:
         return temel();
@@ -271,7 +352,7 @@ class _anaSayfaState extends State<anaSayfa> {
                   Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(
-                        builder: (context) => profilsayfa(),
+                        builder: (context) => ProfilSayfa(),
                       ));
                 },
                 title: Padding(
@@ -327,7 +408,6 @@ class _anaSayfaState extends State<anaSayfa> {
           ),
         ),
       ),
-
       body: ListView(
         children: <Widget>[
           customcard1("toplama", resimler[0]),
@@ -335,8 +415,6 @@ class _anaSayfaState extends State<anaSayfa> {
           customcard3("carpma", resimler[2]),
         ],
       ),
-
-
     );
   }
 }

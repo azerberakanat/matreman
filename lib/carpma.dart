@@ -50,25 +50,8 @@ class _carpmasayfaState extends State<carpmasayfa> {
   Future<bool> _onBackPressed() {
 
     return showDialog(
-      context: context,
-      builder: (context) => AlertDialog(
-        title: Text("Uygulamadan Çıkmak istiyor musunuz?"),
-        actions: <Widget>[
-          TextButton(
-            child: Text("Hayır"),
-            onPressed: () => Navigator.pop(context, false),
-          ),
-          TextButton(
-              child: Text("Evet"),
-              onPressed: () {
-                Navigator.pushReplacement(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => anaSayfa(),
-                    ));
-              }),
-        ],
-      ),
+        context: context,
+        builder: (context) => anaSayfa()
     );
   }
 
